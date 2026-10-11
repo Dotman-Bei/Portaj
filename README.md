@@ -8,7 +8,7 @@ The exit route for Stellar smart wallets.
 
 You hold USDC in a passkey smart wallet (a C-address) and want it on an exchange. The exchange shows a Stellar deposit address and a memo, and your wallet can't send to it: the network refuses a memo on a contract call, and exchanges don't credit contract transfers anyway. Portaj carries the USDC across. It moves it into your own Stellar account, derived from your passkey and created with sponsored reserves, then pays the exchange from there as a classic payment with the memo. You need no XLM and no seed phrase, and one passkey prompt does it.
 
-**[Open the app](https://portaj.vercel.app/app)** · **[Landing page](https://portaj.vercel.app)** · **[How it works](https://portaj.vercel.app/how)** · **[An example carry on stellar.expert](https://stellar.expert/explorer/testnet/tx/47cf0d749698ccc1c98d54b1f9c44ae64bbe55cdab8f513fcdf3dbe166ba1102)** · **[Decisions](DECISIONS.md)**
+**[Open the app](https://portaj.ambit.surf/app)** · **[Landing page](https://portaj.ambit.surf)** · **[How it works](https://portaj.ambit.surf/how)** · **[An example carry on stellar.expert](https://stellar.expert/explorer/testnet/tx/47cf0d749698ccc1c98d54b1f9c44ae64bbe55cdab8f513fcdf3dbe166ba1102)** · **[Decisions](DECISIONS.md)**
 
 > Portaj runs on Stellar **testnet**. No real exchange runs on testnet, so the app ships a clearly labelled exchange simulator that credits deposits the way SDF documents real exchanges do. Portaj isn't affiliated with the Stellar Development Foundation or Circle. It never holds your keys or your funds; the only key on its server is the sponsor's, which pays reserves and fees and can't move your money.
 
@@ -36,10 +36,10 @@ Checked on 9 October 2026. Every row links to evidence a reviewer can check or r
 
 | Part | State | Evidence |
 | --- | --- | --- |
-| Web app | Live at [portaj.vercel.app](https://portaj.vercel.app). The app has four screens: Wallet, Carry, Receipts and Exchange. It covers passkey sign-in, the carry flow, the "normal way" rejection beside it, receipts, recovery, and light and dark themes. | `src/app/` |
+| Web app | Live at [portaj.ambit.surf](https://portaj.ambit.surf). The app has four screens: Wallet, Carry, Receipts and Exchange. It covers passkey sign-in, the carry flow, the "normal way" rejection beside it, receipts, recovery, and light and dark themes. | `src/app/` |
 | Sponsor service | Live as serverless routes on the same deployment. It signs only the transaction shapes listed under [the sponsor's rules](#the-sponsors-rules). It holds 6,394 testnet XLM and sponsors 12 ledger entries | `src/lib/server/sponsor.ts`, `src/app/api/` |
 | End-to-end flow | **16 of 16 checks passed against the live URL** in 116 seconds. Each run uses real testnet transactions and a virtual passkey with PRF. | `e2e/live.mjs` |
-| Exchange simulator | Live. Its deposit account sets `config.memo_required = 1` (SEP-29), and the simulator credits only classic USDC payments that carry a memo. | [/app/exchange](https://portaj.vercel.app/app/exchange) |
+| Exchange simulator | Live. Its deposit account sets `config.memo_required = 1` (SEP-29), and the simulator credits only classic USDC payments that carry a memo. | [/app/exchange](https://portaj.ambit.surf/app/exchange) |
 | Test USDC | A stash of 3,279 Circle testnet USDC. It hands 25 USDC to each new test wallet. | `scripts/setup-testnet.mjs`, [D-003](DECISIONS.md) |
 | Unit tests | 12 tests covering amounts, addresses, memos and key derivation, including an independent HKDF check. | `src/lib/__tests__/core.test.ts` |
 | Mainnet | Not deployed. Network settings live in one file, and the simulator and test tools hide off testnet. A mainnet deploy also needs its own sponsor, the mainnet USDC issuer and passphrase | `src/lib/config.ts` |
@@ -102,11 +102,11 @@ Every carry ends on a receipt with three explorer links (setup, transfer in, pay
 
 To check the claim yourself on the live app:
 
-1. Open **[Wallet](https://portaj.vercel.app/app)**: press **Create test wallet**, then **Get test USDC**.
-2. Open **[Carry](https://portaj.vercel.app/app/carry)** and press **Try the normal way** (right column). The network answers `Transaction contains a memo. Soroban transactions do not support memos.` (simulation) and `txMalformed` (-16) (submission). Nothing moves and no fee is charged.
+1. Open **[Wallet](https://portaj.ambit.surf/app)**: press **Create test wallet**, then **Get test USDC**.
+2. Open **[Carry](https://portaj.ambit.surf/app/carry)** and press **Try the normal way** (right column). The network answers `Transaction contains a memo. Soroban transactions do not support memos.` (simulation) and `txMalformed` (-16) (submission). Nothing moves and no fee is charged.
 3. In the left column, choose **Use the exchange simulator's address and memo**, enter an amount and press **Continue with passkey**. The first time, press **Set up (paid by Portaj)**; then **Send**.
 4. On stellar.expert, your transit account shows 0 XLM, with account and trustline reserves sponsored by the sponsor below. The payment out carries the memo, goes to the deposit address, and its fee is paid by a fee bump.
-5. **[Exchange](https://portaj.vercel.app/app/exchange)** credits it under your memo. A memo-less contract transfer (**Send without the memo**, under the rejection) is listed as not credited.
+5. **[Exchange](https://portaj.ambit.surf/app/exchange)** credits it under your memo. A memo-less contract transfer (**Send without the memo**, under the rejection) is listed as not credited.
 
 ## Architecture
 
@@ -170,7 +170,7 @@ Portaj deploys no contract of its own. Every address above is written by `script
 | Payment out: G → simulator deposit, memo ID `356409`, fee bump by the sponsor | [`47cf0d74…`](https://stellar.expert/explorer/testnet/tx/47cf0d749698ccc1c98d54b1f9c44ae64bbe55cdab8f513fcdf3dbe166ba1102) |
 | The transit account afterwards: 0 XLM, 0 USDC, both reserves sponsored | [`GD2VSQSN…`](https://stellar.expert/explorer/testnet/account/GD2VSQSNHIRGIMB5YM6P3AA7T26ANEN7OSMG4HCU6OR3WAUKVFJVY3YO) |
 
-**End-to-end, on the live URL.** `node e2e/live.mjs https://portaj.vercel.app` runs the whole product in real Chrome, with a CDP virtual authenticator that supports PRF and real testnet transactions. The last run passed all 16 checks:
+**End-to-end, on the live URL.** `node e2e/live.mjs https://portaj.ambit.surf` runs the whole product in real Chrome, with a CDP virtual authenticator that supports PRF and real testnet transactions. The last run passed all 16 checks:
 
 - landing renders
 - create a test wallet (2 prompts)
@@ -240,7 +240,7 @@ To deploy, set `SPONSOR_SECRET` on the host. Optionally, set `SUPABASE_URL` and 
 | [prd.md](prd.md) | The product spec: problem, mechanism, functional requirements, transactions, key derivation, failure handling, scope and judging fit |
 | [DECISIONS.md](DECISIONS.md) | Where the network or the libraries disagreed with the spec, and what was done: D-001 to D-010 |
 | [frontend.md](frontend.md) | The design system: tokens, type, surfaces, layout and copy rules |
-| [/how](https://portaj.vercel.app/how) | The flow, transactions, key derivation, failures, addresses and sources, in the app |
+| [/how](https://portaj.ambit.surf/how) | The flow, transactions, key derivation, failures, addresses and sources, in the app |
 
 ## What Portaj does not do yet
 
