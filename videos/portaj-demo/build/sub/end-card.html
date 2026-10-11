@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>End card</title></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Hedvig Serif"; src: url("assets/fonts/HedvigLettersSerif-Regular.ttf") format("truetype"); font-weight: 400; }
+        @font-face { font-family: "Hedvig Sans"; src: url("assets/fonts/HedvigLettersSans-Regular.ttf") format("truetype"); font-weight: 400; }
+        #ec-root { position: absolute; inset: 0; }
+        #ec-paper { position: absolute; inset: 0; background: #f6f4ef; }
+        #ec-brand { position: absolute; left: 168px; top: 120px; display: flex; align-items: center; gap: 18px; }
+        #ec-brand svg { width: 52px; height: 52px; display: block; }
+        #ec-brand span { font-family: "Hedvig Sans"; font-size: 44px; letter-spacing: -0.01em; color: #121212; }
+        #ec-kicker { position: absolute; left: 168px; top: 420px; font-family: "Hedvig Sans"; font-size: 24px; letter-spacing: 0.22em; text-transform: uppercase; color: #6d6a64; }
+        #ec-kicker i { display: inline-block; width: 10px; height: 10px; background: #884c07; margin-right: 18px; vertical-align: 3px; }
+        #ec-url { position: absolute; left: 168px; top: 470px; font-family: "Hedvig Serif"; font-size: 136px; line-height: 1.1; letter-spacing: -0.02em; color: #121212; white-space: nowrap; }
+        #ec-fine { position: absolute; left: 168px; top: 668px; font-family: "Hedvig Sans"; font-size: 30px; color: #55524c; }
+      </style>
+      <div id="ec-root" data-composition-id="end-card" data-width="1920" data-height="1080">
+        <div id="ec-paper"></div>
+        <div id="ec-brand">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="2" width="9" height="2" fill="#121212" /><rect x="5" y="5" width="6" height="6" fill="#884c07" /><rect x="6" y="12" width="9" height="2" fill="#121212" /></svg>
+          <span>portaj</span>
+        </div>
+        <div id="ec-kicker"><i></i>Try it on testnet</div>
+        <div id="ec-url">portaj.ambit.surf</div>
+        <div id="ec-fine">No custody · No XLM · Fees paid by Portaj</div>
+      </div>
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          // Paper dissolves over the last frame of the product, then the type settles in.
+          tl.fromTo("#ec-paper", { opacity: 0 }, { opacity: 1, duration: 0.8, ease: "power1.inOut" }, 0);
+          tl.fromTo("#ec-brand", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.55);
+          tl.fromTo("#ec-kicker", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.7);
+          tl.fromTo("#ec-url", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 1.1, ease: "expo.out" }, 0.82);
+          tl.fromTo("#ec-fine", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 1.05);
+          window.__timelines["end-card"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

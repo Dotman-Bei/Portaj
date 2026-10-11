@@ -1,0 +1,11 @@
+import { launch, passCheckpoint, BASE } from "./common.mjs";
+const { browser, page } = await launch({ width: 1280, height: 720, dsf: 2 });
+await page.goto(BASE + "/", { waitUntil: "load" }); await passCheckpoint(page);
+await page.goto(BASE + "/", { waitUntil: "networkidle" }).catch(()=>{});
+await page.waitForTimeout(2500);
+await page.addStyleTag({ content: `html,body{background:transparent !important} main,footer{visibility:hidden !important} header{background:transparent !important;backdrop-filter:none !important} header::before{display:none !important}` });
+await page.waitForTimeout(500);
+const hdr = page.locator("header").first();
+console.log(await hdr.boundingBox());
+await page.screenshot({ path: "landing_header.png", omitBackground: true, clip: { x: 0, y: 0, width: 1280, height: 76 } });
+await browser.close();

@@ -1,0 +1,330 @@
+{
+ "total": 90.0,
+ "screen_end": 82.8,
+ "end_card": 82.0,
+ "segments": [
+  {
+   "id": "wallet-create",
+   "src_in": 1.623,
+   "src_out": 5.637,
+   "rate": 1,
+   "start": 13.6,
+   "dur": 4.014
+  },
+  {
+   "id": "wallet-usdc",
+   "src_in": 36.995,
+   "src_out": 39.928,
+   "rate": 1,
+   "start": 17.614,
+   "dur": 2.933
+  },
+  {
+   "id": "wallet-funded",
+   "src_in": 46.165,
+   "src_out": 50.211,
+   "rate": 1,
+   "start": 20.547,
+   "dur": 4.046
+  },
+  {
+   "id": "carry-form",
+   "src_in": 50.224,
+   "src_out": 55.377,
+   "rate": 1,
+   "start": 24.593,
+   "dur": 5.153
+  },
+  {
+   "id": "normal-way",
+   "src_in": 55.377,
+   "src_out": 65.674,
+   "rate": 1,
+   "start": 29.746,
+   "dur": 10.297
+  },
+  {
+   "id": "drop-memo",
+   "src_in": 65.674,
+   "src_out": 68.106,
+   "rate": 1,
+   "start": 40.043,
+   "dur": 2.432
+  },
+  {
+   "id": "with-portaj",
+   "src_in": 76.12,
+   "src_out": 90.771,
+   "rate": 1,
+   "start": 42.475,
+   "dur": 14.651
+  },
+  {
+   "id": "ready",
+   "src_in": 96.689,
+   "src_out": 100.073,
+   "rate": 1,
+   "start": 57.126,
+   "dur": 3.384
+  },
+  {
+   "id": "sending",
+   "src_in": 100.073,
+   "src_out": 111.093,
+   "rate": 3,
+   "start": 60.51,
+   "dur": 3.673
+  },
+  {
+   "id": "receipt",
+   "src_in": 111.093,
+   "src_out": 121.058,
+   "rate": 1,
+   "start": 64.183,
+   "dur": 9.965
+  },
+  {
+   "id": "exchange",
+   "src_in": 120.925,
+   "src_out": 129.577,
+   "rate": 1,
+   "start": 74.148,
+   "dur": 8.652
+  }
+ ],
+ "vo": [
+  {
+   "id": "v01",
+   "start": 0.6,
+   "dur": 6.959
+  },
+  {
+   "id": "v02",
+   "start": 8.6,
+   "dur": 5.387
+  },
+  {
+   "id": "v03",
+   "start": 14.287,
+   "dur": 8.006
+  },
+  {
+   "id": "v04",
+   "start": 25.043,
+   "dur": 5.04
+  },
+  {
+   "id": "v05",
+   "start": 30.383,
+   "dur": 8.949
+  },
+  {
+   "id": "v06",
+   "start": 41.125,
+   "dur": 4.394
+  },
+  {
+   "id": "v07",
+   "start": 45.819,
+   "dur": 12.742
+  },
+  {
+   "id": "v08",
+   "start": 59.46,
+   "dur": 5.414
+  },
+  {
+   "id": "v09",
+   "start": 65.174,
+   "dur": 8.029
+  },
+  {
+   "id": "v10",
+   "start": 74.548,
+   "dur": 7.462
+  },
+  {
+   "id": "v11",
+   "start": 83.0,
+   "dur": 5.015
+  }
+ ],
+ "camera": [
+  {
+   "at": 0.0,
+   "scale": 1.04,
+   "x": -38.4,
+   "y": -21.6,
+   "dur": 0.01,
+   "ease": "power2.inOut"
+  },
+  {
+   "at": 3.6,
+   "scale": 1.0,
+   "x": 0,
+   "y": 0,
+   "dur": 4.0,
+   "ease": "sine.inOut"
+  },
+  {
+   "at": 8.4,
+   "scale": 1.05,
+   "x": -48.0,
+   "y": 0,
+   "dur": 5.0,
+   "ease": "sine.inOut"
+  },
+  {
+   "at": 13.6,
+   "scale": 1.0,
+   "x": 0,
+   "y": 0,
+   "dur": 0.01,
+   "ease": "none"
+  },
+  {
+   "at": 20.547,
+   "scale": 1.18,
+   "x": 0,
+   "y": 0,
+   "dur": 1.3,
+   "ease": "power2.inOut"
+  },
+  {
+   "at": 22.493,
+   "scale": 1.0,
+   "x": 0,
+   "y": 0,
+   "dur": 1.0,
+   "ease": "power2.inOut"
+  },
+  {
+   "at": 25.193,
+   "scale": 1.2,
+   "x": 0,
+   "y": -216.0,
+   "dur": 1.6,
+   "ease": "power2.inOut"
+  },
+  {
+   "at": 29.746,
+   "scale": 1.2,
+   "x": -384.0,
+   "y": -216.0,
+   "dur": 1.1,
+   "ease": "power2.inOut"
+  },
+  {
+   "at": 33.402,
+   "scale": 1.24,
+   "x": -460.8,
+   "y": -73.8,
+   "dur": 1.6,
+   "ease": "power2.inOut"
+  },
+  {
+   "at": 35.202,
+   "scale": 1.34,
+   "x": -652.8,
+   "y": -63.0,
+   "dur": 3.4,
+   "ease": "sine.inOut"
+  },
+  {
+   "at": 40.043,
+   "scale": 1.15,
+   "x": -288.0,
+   "y": -115.5,
+   "dur": 1.0,
+   "ease": "power2.inOut"
+  },
+  {
+   "at": 45.125,
+   "scale": 1.12,
+   "x": 0,
+   "y": -129.6,
+   "dur": 1.3,
+   "ease": "power2.inOut"
+  },
+  {
+   "at": 50.912,
+   "scale": 1.16,
+   "x": 0,
+   "y": 0,
+   "dur": 1.2,
+   "ease": "power2.inOut"
+  },
+  {
+   "at": 53.608,
+   "scale": 1.24,
+   "x": 0,
+   "y": 0,
+   "dur": 2.4,
+   "ease": "sine.inOut"
+  },
+  {
+   "at": 55.176,
+   "scale": 1.12,
+   "x": 0,
+   "y": -129.6,
+   "dur": 1.0,
+   "ease": "power2.inOut"
+  },
+  {
+   "at": 57.126,
+   "scale": 1.16,
+   "x": 0,
+   "y": -172.8,
+   "dur": 0.01,
+   "ease": "none"
+  },
+  {
+   "at": 64.183,
+   "scale": 1.12,
+   "x": 0,
+   "y": 0,
+   "dur": 0.01,
+   "ease": "none"
+  },
+  {
+   "at": 67.295,
+   "scale": 1.26,
+   "x": 0,
+   "y": 0,
+   "dur": 2.6,
+   "ease": "sine.inOut"
+  },
+  {
+   "at": 72.348,
+   "scale": 1.1,
+   "x": 0,
+   "y": -87.0,
+   "dur": 1.0,
+   "ease": "power2.inOut"
+  },
+  {
+   "at": 74.015,
+   "scale": 1.0,
+   "x": 0,
+   "y": 0,
+   "dur": 0.01,
+   "ease": "none"
+  },
+  {
+   "at": 75.148,
+   "scale": 1.25,
+   "x": -240.0,
+   "y": -270.0,
+   "dur": 1.8,
+   "ease": "power2.inOut"
+  },
+  {
+   "at": 77.787,
+   "scale": 1.2,
+   "x": -192.0,
+   "y": 0,
+   "dur": 1.8,
+   "ease": "power2.inOut"
+  }
+ ]
+}

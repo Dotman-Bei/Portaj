@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>Landing page</title></head>
+  <body>
+    <template>
+      <style>
+        /* The live landing page captured at 2x, scrolled here so the motion is perfectly smooth.
+           The site's fixed glass header is its own layer: real artwork over the site's own 80% white + 12px blur. */
+        #ld-root { position: absolute; inset: 0; overflow: hidden; background: #111; }
+        #ld-scroll { position: absolute; left: 0; top: 0; width: 1920px; height: 2250px; }
+        #ld-scroll img { display: block; width: 1920px; height: 2250px; }
+        #ld-header { position: absolute; left: 0; top: 0; width: 1920px; height: 114px; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        #ld-header img { display: block; width: 1920px; height: 114px; }
+      </style>
+      <div id="ld-root" data-composition-id="landing" data-width="1920" data-height="1080">
+        <div id="ld-scroll" data-layout-allow-overflow><img src="assets/landing/landing-body.png" alt="" /></div>
+        <div id="ld-header"><img src="assets/landing/landing-header.png" alt="" /></div>
+      </div>
+      <script>
+        (function () {
+          const SCROLL = {{SCROLL}}; // [{at, y (CSS px), dur, ease}] in landing-local seconds
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#ld-scroll", { y: 0 }, { y: 0, duration: 0.01 }, 0);
+          for (const k of SCROLL) tl.to("#ld-scroll", { y: -k.y * 1.5, duration: k.dur, ease: k.ease }, k.at);
+          window.__timelines["landing"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

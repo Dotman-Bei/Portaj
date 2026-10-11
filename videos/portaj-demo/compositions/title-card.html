@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>Title card</title></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Hedvig Serif"; src: url("assets/fonts/HedvigLettersSerif-Regular.ttf") format("truetype"); font-weight: 400; }
+        @font-face { font-family: "Hedvig Sans"; src: url("assets/fonts/HedvigLettersSans-Regular.ttf") format("truetype"); font-weight: 400; }
+        #tc-root { position: absolute; inset: 0; }
+        #tc-paper { position: absolute; inset: 0; background: #f6f4ef; }
+        #tc-inner { position: absolute; inset: 0; }
+        #tc-brand { position: absolute; left: 168px; top: 120px; display: flex; align-items: center; gap: 18px; }
+        #tc-brand svg { width: 52px; height: 52px; display: block; }
+        #tc-brand span { font-family: "Hedvig Sans"; font-size: 44px; letter-spacing: -0.01em; color: #121212; }
+        #tc-headline { position: absolute; left: 168px; top: 392px; width: 1320px; margin: 0; font-family: "Hedvig Serif"; font-weight: 400; font-size: 112px; line-height: 1.04; letter-spacing: -0.02em; color: #121212; }
+        #tc-kicker { position: absolute; left: 168px; top: 678px; font-family: "Hedvig Sans"; font-size: 24px; letter-spacing: 0.22em; text-transform: uppercase; color: #6d6a64; }
+        #tc-kicker i { display: inline-block; width: 10px; height: 10px; background: #884c07; margin-right: 18px; vertical-align: 3px; }
+      </style>
+      <div id="tc-root" data-composition-id="title-card" data-width="1920" data-height="1080">
+        <div id="tc-paper"></div>
+        <div id="tc-inner">
+          <div id="tc-brand">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="2" width="9" height="2" fill="#121212" /><rect x="5" y="5" width="6" height="6" fill="#884c07" /><rect x="6" y="12" width="9" height="2" fill="#121212" /></svg>
+            <span>portaj</span>
+          </div>
+          <h1 id="tc-headline">The exit route for Stellar smart wallets.</h1>
+          <div id="tc-kicker"><i></i>Passkey · Memo · No XLM</div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const OUT = 3.6; // when the product starts showing through
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#tc-brand", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.2);
+          tl.fromTo("#tc-headline", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 1.1, ease: "expo.out" }, 0.45);
+          tl.fromTo("#tc-kicker", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 0.8);
+          // Type leaves first, then the paper opens onto the page, so the two headlines never overlap.
+          tl.to("#tc-inner", { y: -12, opacity: 0, duration: 0.55, ease: "power2.in" }, OUT - 0.35);
+          tl.fromTo("#tc-paper", { opacity: 1 }, { opacity: 0, duration: 0.75, ease: "power1.inOut" }, OUT + 0.15);
+          window.__timelines["title-card"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,550 @@
+{
+ "screen_start": 3.6,
+ "landing": {
+  "dur": 10.0,
+  "scroll": [
+   {
+    "at": 1.4,
+    "y": 640,
+    "dur": 3.0,
+    "ease": "power2.inOut"
+   }
+  ]
+ },
+ "segments": [
+  {
+   "id": "wallet-create",
+   "from": "wallet_page",
+   "from_d": -0.5,
+   "to": "create_click",
+   "to_d": 0.45
+  },
+  {
+   "id": "wallet-usdc",
+   "from": "wallet_created",
+   "from_d": -0.25,
+   "to": "usdc_click",
+   "to_d": 0.45
+  },
+  {
+   "id": "wallet-funded",
+   "from": "usdc_arrived",
+   "from_d": -0.25,
+   "to": "carry_click",
+   "to_d": 0.5
+  },
+  {
+   "id": "carry-form",
+   "from": "carry_page",
+   "from_d": -0.1,
+   "to": "normal_move",
+   "to_d": -0.1
+  },
+  {
+   "id": "normal-way",
+   "from": "normal_move",
+   "from_d": -0.1,
+   "to": "normal_read_done",
+   "to_d": 0
+  },
+  {
+   "id": "drop-memo",
+   "from": "normal_read_done",
+   "from_d": 0,
+   "to": "nomemo_click",
+   "to_d": 0.45
+  },
+  {
+   "id": "with-portaj",
+   "from": "nomemo_landed",
+   "from_d": -0.25,
+   "to": "setup_click",
+   "to_d": 0.45
+  },
+  {
+   "id": "ready",
+   "from": "setup_done",
+   "from_d": -0.25,
+   "to": "send_click",
+   "to_d": 0.45
+  },
+  {
+   "id": "sending",
+   "from": "send_click",
+   "from_d": 0.45,
+   "to": "receipt",
+   "to_d": -0.15,
+   "rate": 3
+  },
+  {
+   "id": "receipt",
+   "from": "receipt",
+   "from_d": -0.15,
+   "to": "seeit_click",
+   "to_d": 0.5
+  },
+  {
+   "id": "exchange",
+   "from": "exchange",
+   "from_d": -0.6,
+   "to": "end",
+   "to_d": 0
+  }
+ ],
+ "vo": [
+  {
+   "id": "v01",
+   "at": 0.6
+  },
+  {
+   "id": "v02",
+   "at": 8.6
+  },
+  {
+   "id": "v03",
+   "at": {
+    "mark": "wallet_page",
+    "md": -0.5,
+    "d": 0.5
+   }
+  },
+  {
+   "id": "v04",
+   "at": {
+    "mark": "carry_page",
+    "md": 0,
+    "d": 0.35
+   }
+  },
+  {
+   "id": "v05",
+   "at": {
+    "mark": "normal_move",
+    "md": 0,
+    "d": 0.2
+   }
+  },
+  {
+   "id": "v06",
+   "at": {
+    "mark": "nomemo_click",
+    "md": -0.9
+   }
+  },
+  {
+   "id": "v07",
+   "at": {
+    "mark": "nomemo_landed",
+    "md": 2.7
+   }
+  },
+  {
+   "id": "v08",
+   "at": {
+    "mark": "send_click",
+    "md": -0.6
+   }
+  },
+  {
+   "id": "v09",
+   "at": {
+    "mark": "receipt",
+    "md": 0.15
+   }
+  },
+  {
+   "id": "v10",
+   "at": {
+    "mark": "exchange",
+    "md": -0.2
+   }
+  },
+  {
+   "id": "v11",
+   "on_end_card": true
+  }
+ ],
+ "end_card": {
+  "at": {
+   "mark": "end",
+   "md": -0.9
+  },
+  "after_vo": 0.5,
+  "vo_delay": 1.0,
+  "hold": 8.0,
+  "tail": 1.9
+ },
+ "music": {
+  "media_start": 4.0,
+  "full": 0.5,
+  "duck": 0.16
+ },
+ "camera": [
+  {
+   "at": 0,
+   "scale": 1.04,
+   "focus": [
+    640,
+    360
+   ],
+   "dur": 0.01
+  },
+  {
+   "at": 3.6,
+   "scale": 1.0,
+   "focus": [
+    640,
+    360
+   ],
+   "dur": 4.0,
+   "ease": "sine.inOut"
+  },
+  {
+   "at": 8.4,
+   "scale": 1.05,
+   "focus": [
+    640,
+    330
+   ],
+   "dur": 5.0,
+   "ease": "sine.inOut"
+  },
+  {
+   "at": 13.6,
+   "scale": 1.0,
+   "focus": [
+    640,
+    360
+   ],
+   "dur": 0.01,
+   "ease": "none"
+  },
+  {
+   "at": {
+    "mark": "usdc_arrived",
+    "md": -0.25
+   },
+   "scale": 1.18,
+   "focus": [
+    486,
+    300
+   ],
+   "dur": 1.3
+  },
+  {
+   "at": {
+    "mark": "carry_click",
+    "md": -1.6
+   },
+   "scale": 1.0,
+   "focus": [
+    640,
+    360
+   ],
+   "dur": 1.0
+  },
+  {
+   "at": {
+    "mark": "carry_page",
+    "md": 0.5
+   },
+   "scale": 1.2,
+   "focus": [
+    354,
+    470
+   ],
+   "dur": 1.6
+  },
+  {
+   "at": {
+    "mark": "normal_move",
+    "md": -0.1
+   },
+   "scale": 1.2,
+   "focus": [
+    960,
+    470
+   ],
+   "dur": 1.1
+  },
+  {
+   "at": {
+    "mark": "normal_scrolled",
+    "md": -1.6
+   },
+   "scale": 1.24,
+   "focus": [
+    978,
+    330
+   ],
+   "dur": 1.6
+  },
+  {
+   "at": {
+    "mark": "normal_scrolled",
+    "md": 0.2
+   },
+   "scale": 1.34,
+   "focus": [
+    978,
+    300
+   ],
+   "dur": 3.4,
+   "ease": "sine.inOut"
+  },
+  {
+   "at": {
+    "mark": "normal_read_done",
+    "md": 0
+   },
+   "scale": 1.15,
+   "focus": [
+    978,
+    380
+   ],
+   "dur": 1.0
+  },
+  {
+   "at": {
+    "mark": "nomemo_landed",
+    "md": 2.4
+   },
+   "scale": 1.12,
+   "focus": [
+    354,
+    420
+   ],
+   "dur": 1.3
+  },
+  {
+   "at": {
+    "mark": "exit_account",
+    "md": 0.2
+   },
+   "scale": 1.16,
+   "focus": [
+    354,
+    300
+   ],
+   "dur": 1.2
+  },
+  {
+   "at": {
+    "mark": "exit_scrolled",
+    "md": 0.2
+   },
+   "scale": 1.24,
+   "focus": [
+    340,
+    240
+   ],
+   "dur": 2.4,
+   "ease": "sine.inOut"
+  },
+  {
+   "at": {
+    "mark": "setup_click",
+    "md": -1.5
+   },
+   "scale": 1.12,
+   "focus": [
+    354,
+    400
+   ],
+   "dur": 1.0
+  },
+  {
+   "at": {
+    "mark": "setup_done",
+    "md": -0.25
+   },
+   "scale": 1.16,
+   "focus": [
+    354,
+    450
+   ],
+   "dur": 0.01,
+   "ease": "none"
+  },
+  {
+   "at": {
+    "mark": "receipt",
+    "md": -0.15
+   },
+   "scale": 1.12,
+   "focus": [
+    354,
+    250
+   ],
+   "dur": 0.01,
+   "ease": "none"
+  },
+  {
+   "at": {
+    "mark": "receipt_scrolled",
+    "md": 0.0
+   },
+   "scale": 1.26,
+   "focus": [
+    354,
+    200
+   ],
+   "dur": 2.6,
+   "ease": "sine.inOut"
+  },
+  {
+   "at": {
+    "mark": "seeit_click",
+    "md": -1.3
+   },
+   "scale": 1.1,
+   "focus": [
+    354,
+    380
+   ],
+   "dur": 1.0
+  },
+  {
+   "at": {
+    "mark": "exchange",
+    "md": -0.6
+   },
+   "scale": 1.0,
+   "focus": [
+    640,
+    360
+   ],
+   "dur": 0.01,
+   "ease": "none"
+  },
+  {
+   "at": {
+    "mark": "exchange",
+    "md": 0.4
+   },
+   "scale": 1.25,
+   "focus": [
+    640,
+    560
+   ],
+   "dur": 1.8
+  },
+  {
+   "at": {
+    "mark": "uncredited",
+    "md": -1.5
+   },
+   "scale": 1.2,
+   "focus": [
+    640,
+    300
+   ],
+   "dur": 1.8
+  }
+ ],
+ "sfx": [
+  {
+   "at": {
+    "mark": "create_click",
+    "md": -0.1
+   },
+   "file": "click.wav",
+   "vol": 0.85
+  },
+  {
+   "at": {
+    "mark": "usdc_click",
+    "md": -0.1
+   },
+   "file": "click.wav",
+   "vol": 0.85
+  },
+  {
+   "at": {
+    "mark": "carry_click",
+    "md": -0.1
+   },
+   "file": "click.wav",
+   "vol": 0.85
+  },
+  {
+   "at": {
+    "mark": "sim_click",
+    "md": -0.1
+   },
+   "file": "click.wav",
+   "vol": 0.85
+  },
+  {
+   "at": {
+    "mark": "normal_click",
+    "md": -0.1
+   },
+   "file": "click.wav",
+   "vol": 0.85
+  },
+  {
+   "at": {
+    "mark": "normal_result"
+   },
+   "file": "thud.wav",
+   "vol": 0.35
+  },
+  {
+   "at": {
+    "mark": "nomemo_click",
+    "md": -0.1
+   },
+   "file": "click.wav",
+   "vol": 0.85
+  },
+  {
+   "at": {
+    "mark": "continue_click",
+    "md": -0.1
+   },
+   "file": "click.wav",
+   "vol": 0.85
+  },
+  {
+   "at": {
+    "mark": "setup_click",
+    "md": -0.1
+   },
+   "file": "click.wav",
+   "vol": 0.85
+  },
+  {
+   "at": {
+    "mark": "send_click",
+    "md": -0.1
+   },
+   "file": "click.wav",
+   "vol": 0.85
+  },
+  {
+   "at": {
+    "mark": "seeit_click",
+    "md": -0.1
+   },
+   "file": "click.wav",
+   "vol": 0.85
+  },
+  {
+   "at": {
+    "mark": "amount_typed",
+    "md": -0.4
+   },
+   "file": "key.wav",
+   "vol": 0.7
+  },
+  {
+   "at": {
+    "mark": "amount_typed",
+    "md": -0.23
+   },
+   "file": "key.wav",
+   "vol": 0.7
+  }
+ ]
+}
